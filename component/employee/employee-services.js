@@ -6,7 +6,7 @@ angular.module('exam').factory('employeeService', ['$http','$q',function($http, 
 
 			var deferred = $q.defer()
 
-			$http.get('/data/employee.json').success(function(result){
+			$http.get('http://thesudeep.github.io/exam1/data/employee.json').success(function(result){
 				deferred.resolve(result)
 			})
 
