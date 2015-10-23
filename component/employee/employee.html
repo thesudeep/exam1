@@ -1,0 +1,135 @@
+<div class="container">
+
+	<div class="wrapper">
+		 <h2>Active Employee</h2>
+		<table class="table table-hover" >
+			<input type="text" ng-model="keywords" placeholder="Search...."/>
+			<thead>
+      			<tr>
+			        <th>
+			          <a ng-click="orderByField = 'FirstName'; sortReverse = !sortReverse">
+			            First Name 
+			            <span ng-show="orderByField == 'FirstName' && !sortReverse" class="fa fa-caret-down"></span>
+			            <span ng-show="orderByField == 'FirstName' && sortReverse" class="fa fa-caret-up"></span>
+			          </a>
+			        </th>
+			        <th>
+			          <a ng-click="orderByField = 'LastName'; sortReverse = !sortReverse">
+			          Last Name 
+			            <span ng-show="orderByField == 'LastName' && !sortReverse" class="fa fa-caret-down"></span>
+			            <span ng-show="orderByField == 'LastName' && sortReverse" class="fa fa-caret-up"></span>
+			          </a>
+			        </th>
+			        <th>
+			          <a ng-click="orderByField = 'Address'; sortReverse = !sortReverse">
+			          Address 
+			            <span ng-show="orderByField == 'Address' && !sortReverse" class="fa fa-caret-down"></span>
+			            <span ng-show="orderByField == 'Address' && sortReverse" class="fa fa-caret-up"></span>
+			          </a>
+			        </th>
+			        <th>
+			          <a ng-click="orderByField = 'City'; sortReverse = !sortReverse">
+			          City 
+			            <span ng-show="orderByField == 'City' && !sortReverse" class="fa fa-caret-down"></span>
+			            <span ng-show="orderByField == 'City' && sortReverse" class="fa fa-caret-up"></span>
+			          </a>
+			        </th>
+			        <th>
+			          <a ng-click="orderByField = 'State'; sortReverse = !sortReverse">
+			          State 
+			            <span ng-show="orderByField == 'State' && !sortReverse" class="fa fa-caret-down"></span>
+			            <span ng-show="orderByField == 'State' && sortReverse" class="fa fa-caret-up"></span>
+			          </a>
+			        </th>
+			        <th>
+			        	Details
+			        </th>
+			        <th>
+			          Delete			            
+			          </a>
+			        </th>
+		        </tr>
+		    </thead>
+
+			
+			<tbody>
+				<tr ng-show="item.Active" ng-repeat="item in employee.employeeList | filter:keywords | orderBy:orderByField:sortReverse">
+					<td><span ng-bind="item.FirstName | makeUppercase"></span></td>
+					<td><span ng-bind="item.LastName | makeUppercase"></span></td>
+					<td><span ng-bind="item.Address | makeUppercase"></span></td>
+					<td><span ng-bind="item.City | makeUppercase"></span></td>
+					<td><span ng-bind="item.State | makeUppercase"></span></td>
+					<td>
+						<a ng-click="employee.getEmployee(item)" class="btn btn-info btn-sm"  data-dismiss="modal" data-toggle="modal" data-target="#employeeModal">Details</a>
+					</td>
+					<td>
+						<!-- <a  ng-click="employee.delete($index)"><i class="fa fa-times"></a> -->
+						<a ng-click="employee.getEmployee(item)" data-dismiss="modal" data-toggle="modal" data-target="#employeeDeleteModal"><i class="fa fa-times"></i></a> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+		
+
+	</div>
+
+</div>
+
+<div class="container">		
+		<h2>InActive Employee</h2>
+		<ul>
+			<li ng-show="!item.Active" ng-repeat="item in employee.employeeList">
+				{{item.FirstName}} {{item.LastName}}
+			</li>
+		</ul>
+
+
+<div id="employeeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Employee Details</h4>
+      </div>
+      <div class="modal-body">      	
+        <p>Full Name: <span ng-bind="employee.currentEmployee.FirstName"></span>&nbsp;<span ng-bind="employee.currentEmployee.LastName"></span></p>
+        <p>Full Address: 
+	        <address>
+	        	<span ng-bind="employee.currentEmployee.Address"></span> 
+	        	<br/> <span ng-bind="employee.currentEmployee.City"></span> &nbsp; <span ng-bind="employee.currentEmployee.State"></span>
+	        </address>
+        
+        </p>
+        <p>Position: <span ng-bind="employee.currentEmployee.Postion"></span></p>
+        <p>Salary: <span ng-bind="employee.currentEmployee.Salary"></span></p>
+        <p>Roles: <span ng-bind="employee.currentEmployee.Roles"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+		
+<div id="employeeDeleteModal" class="modal fade" data-backdrop="false" data-dismiss="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Are you sure to delete?</h4>
+      </div>
+      
+      <div class="modal-footer margin-t md">
+					<button data-dismiss="modal" class="btn-bs btn-default pull-left">No</button>
+					<button class="btn-bs btn-primary pull-right" ng-click="employee.delete(employee.currentEmployee)">Yes</button>
+	  </div>
+    </div>
+
+  </div>
+</div>
+
+

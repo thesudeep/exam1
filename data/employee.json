@@ -1,0 +1,67 @@
+{
+	"data":[
+
+			{
+				"ID":1,
+				"FirstName":"James",
+				"LastName":"Butt",
+				"Address":"6649 N Blue Gum St",
+				"City":"New Orleans",
+				"State":"LA",
+				"Active":true,
+				"Position": "Applications Developer",
+				"Salary": "150K",
+				"Roles": "Able to write backend as well as frontend apps for Marketing"
+			},
+			{
+				"ID":2,
+				"FirstName":"Josephine",
+				"LastName":"Darakjy",
+				"Address":"4 B Blue Ridge Blvd",
+				"City":"Brighton",
+				"State":"MI",
+				"Active":false,
+				"Position": "UI Developer",
+				"Salary": "140K",
+				"Roles": "Maintain apps for Marketing"
+			},
+			{
+				"ID":3,
+				"FirstName":"Art",
+				"LastName":"Venere",
+				"Address":"8 W Cerritos Ave #54",
+				"City":"Bridgeport",
+				"State":"NJ",
+				"Active":false,
+				"Position": "Web Designer",
+				"Salary": "130K",
+				"Roles": "Desing website using photoshop and bootstrap framework"
+			},
+			{
+				"ID":4,
+				"FirstName":"Lenna",
+				"LastName":"Paprocki",
+				"Address":"639 Main St",
+				"City":"Anchorage",
+				"State":"AK",
+				"Active":true,
+				"Position": "Finanical Advisor",
+				"Salary": "240K",
+				"Roles": "Expertise in acquistion and handle all audit"
+			},
+			{
+				"ID":5,
+				"FirstName":"Donette",
+				"LastName":"Foller",
+				"Address":"34 Center St",
+				"City":"Hamilton",
+				"State":"OH",
+				"Active":true,
+				"Position": "Web Analyst",
+				"Salary": "120K",
+				"Roles": "Worked with business analyst to find all required needs"		
+			}
+
+
+		]
+}
