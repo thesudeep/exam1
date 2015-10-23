@@ -8,7 +8,7 @@ angular.module("exam").controller("albumController",['$scope','$q','$http','$tim
 
 		var deferred = $q.defer()
 
-			$http.get('/data/album.json').success(function(result){
+			$http.get('http://thesudeep.github.io/exam1/data/album.json').success(function(result){
 				
 				deferred.resolve(result)
 			})
