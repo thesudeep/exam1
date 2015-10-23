@@ -19,7 +19,7 @@ angular.module("exam").controller("albumController",['$scope','$q','$http','$tim
 	}
 
 	_getPhotos = function getPhotos(){
-		var url='/data/albumDetails.json'
+		var url='http://thesudeep.github.io/exam1/data/albumDetails.json'
 		var deferred = $q.defer()
 
 			$http.get(url).success(function(photoResult){
